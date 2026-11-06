@@ -1,0 +1,29 @@
+# Project planning input for BMAD agents, not an installer configuration file.
+project: OrangeHRM authentication automation
+target: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+method: BMAD Method (bmm)
+execution: Playwright Test
+scope:
+  - Read-only authentication checks against the shared demo
+  - Optional Jira Cloud defects for final unexpected failures
+out_of_scope:
+  - Creating, editing, or deleting employees and shared demo data
+  - Production testing or storing authentication state in version control
+stories:
+  - id: AUTH-001
+    acceptance: Valid credentials show the dashboard
+    test: tests/login.spec.js
+  - id: AUTH-002
+    acceptance: Invalid credentials show an error and remain on the login page
+    test: tests/login.spec.js
+  - id: AUTH-003
+    acceptance: Empty submission shows both required field errors
+    test: tests/login.spec.js
+  - id: AUTH-004
+    acceptance: Logout revokes access to the dashboard
+    test: tests/login.spec.js
+definition_of_done:
+  - All authentication checks pass in Chromium
+  - Jira reporter unit tests pass without network access
+  - Jira remains opt-in and does not upload credentials or diagnostic artifacts
+  - Review BMAD acceptance criteria before adding new scenarios
