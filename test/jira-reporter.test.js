@@ -57,7 +57,7 @@ test('enabled Jira requires each configuration value', () => {
 test('Jira rejects insecure or credential-bearing URLs', () => {
   for (const url of [
     'http://example.atlassian.net',
-    '******example.atlassian.net',
+    'https://user@example.atlassian.net',
     'https://example.atlassian.net/path',
     'https://example.atlassian.net?token=value',
     'https://example.atlassian.net#fragment',
