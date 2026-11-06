@@ -1,0 +1,24 @@
+{
+  "name": "test_bmad_tharushika",
+  "version": "1.0.0",
+  "description": "BMAD-guided OrangeHRM automation with Playwright and optional Jira reporting",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:unit": "node --test test/*.test.js",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "bmad:init": "npx --yes bmad-method@6.12.4 install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
+  }
+}
