@@ -69,6 +69,7 @@ web_modules/
 .env
 .env.*
 !.env.example
+.venv
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -124,6 +125,7 @@ dist
 
 # Stores Visual Studio Code versions used for testing Visual Studio Code extensions
 .vscode-test
+.vscode
 
 # pnpm
 .pnpm-store
@@ -151,6 +153,7 @@ vite.config.ts.timestamp-*
 # Local BMAD installation and generated planning output
 _bmad/
 _bmad-output/
+.bmad
 
 # Playwright
 /test-results/

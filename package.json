@@ -12,6 +12,7 @@
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "report": "playwright show-report",
+    "testrail:preflight": "node scripts/testrail-preflight.js",
     "bmad:init": "npx --yes bmad-method@6.12.4 install"
   },
   "keywords": [],

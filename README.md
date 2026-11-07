@@ -67,16 +67,16 @@ See the [official BMAD installation guide](https://docs.bmad-method.org/how-to/i
 
 ## Jira Cloud integration (opt-in)
 
-Leave `JIRA_ENABLED=false` for local runs without Jira. To enable actual issue creation, set these in `.env`
+Leave `TESTRAIL_ENABLED=false` for local runs without Jira. To enable actual issue creation, set these in `.env`
 or a CI secret store:
 
 ```dotenv
-JIRA_ENABLED=true
-JIRA_BASE_URL=https://your-team.atlassian.net
-JIRA_EMAIL=automation@example.com
-JIRA_API_TOKEN=
-JIRA_PROJECT_KEY=HRM
-JIRA_ISSUE_TYPE=Bug
+TESTRAIL_ENABLED=true
+TESTRAIL_BASE_URL=https://your-team.atlassian.net
+TESTRAIL_EMAIL=automation@example.com
+TESTRAIL_API_TOKEN=
+TESTRAIL_PROJECT_KEY=HRM
+TESTRAIL_ISSUE_TYPE=Bug
 ```
 
 Supply a Jira Cloud API token with permission to create issues in that project. Never commit it.

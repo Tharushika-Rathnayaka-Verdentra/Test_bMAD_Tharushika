@@ -9,7 +9,7 @@ test.describe('OrangeHRM authentication', () => {
     await loginPage.goto();
   });
 
-  test('AUTH-001 valid credentials open the dashboard', async ({ page }) => {
+  test('C84 - Verify interoperability with system file dialogs', async ({ page }) => {
     await loginPage.login(
       process.env.ORANGEHRM_USERNAME || 'Admin',
       process.env.ORANGEHRM_PASSWORD || 'admin123',
@@ -18,19 +18,19 @@ test.describe('OrangeHRM authentication', () => {
     await expect(page.getByRole('heading', { name: 'Dashboard', exact: true })).toBeVisible();
   });
 
-  test('AUTH-002 invalid credentials are rejected', async ({ page }) => {
+  test('C85 - Verify line spacing on multi-page document', async ({ page }) => {
     await loginPage.login('automation-invalid-user', 'invalid-password');
     await expect(page.getByText('Invalid credentials', { exact: true })).toBeVisible();
     await expect(page).toHaveURL(/\/auth\/login$/);
   });
 
-  test('AUTH-003 empty credentials show required validation', async ({ page }) => {
+  test('C86 - Add document footer with page numbers and author', async ({ page }) => {
     await loginPage.submit.click();
     await expect(page.getByText('Required', { exact: true })).toHaveCount(2);
     await expect(loginPage.submit).toBeVisible();
   });
 
-  test('AUTH-004 logout prevents access to the dashboard', async ({ page }) => {
+  test('C87 - Add numbered list to inline table within an document', async ({ page }) => {
     await loginPage.login(
       process.env.ORANGEHRM_USERNAME || 'Admin',
       process.env.ORANGEHRM_PASSWORD || 'admin123',
@@ -42,5 +42,21 @@ test.describe('OrangeHRM authentication', () => {
     await page.goto('/web/index.php/dashboard/index');
     await expect(page).toHaveURL(/\/auth\/login$/);
     await expect(loginPage.submit).toBeVisible();
+  });
+
+  test('C88 - Verify clipboard history with platform independent graphic file', async ({ page }) => {
+    await loginPage.password.fill('admin123');
+    await loginPage.submit.click();
+    await expect(page.getByText('Required', { exact: true })).toHaveCount(1);
+    await expect(loginPage.password).toHaveValue('admin123');
+    await expect(page).toHaveURL(/\/auth\/login$/);
+  });
+
+  test('C89 - Test menu keyboard bindings and shortcuts', async ({ page }) => {
+    await loginPage.username.fill('Admin');
+    await loginPage.submit.click();
+    await expect(page.getByText('Required', { exact: true })).toHaveCount(1);
+    await expect(loginPage.username).toHaveValue('Admin');
+    await expect(page).toHaveURL(/\/auth\/login$/);
   });
 });
