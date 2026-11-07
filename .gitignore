@@ -161,3 +161,6 @@ _bmad-output/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+#--
+.agileagentcanvas-context/traces
